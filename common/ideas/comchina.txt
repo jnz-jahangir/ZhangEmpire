@@ -1,0 +1,538 @@
+ideas = {
+
+	country = {
+
+		PRC_immature_production = {
+			name = PRC_immature_production
+			picture = GFX_focus_research
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = -0.1
+				production_factory_efficiency_gain_factor = -0.2
+			}
+		}
+
+		PRC_buaa_idea = {
+			name = PRC_buaa_idea
+			picture = GFX_focus_research
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			research_bonus = {
+				air_equipment = 0.3
+			}
+		}
+
+		PRC_uestc_idea = {
+			name = PRC_uestc_idea
+			picture = GFX_focus_research
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			research_bonus = {
+				electronics = 0.5
+				
+			}
+		}
+
+		PRC_bit_idea_2 = {
+			name = PRC_bit_idea
+			picture = GFX_focus_research
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.3
+			}
+			research_bonus = {
+				armor = 0.3
+				infantry_weapons = 0.2
+				artillery = 0.2
+			}
+		}
+
+		PRC_bit_idea_1 = {
+			name = PRC_bit_idea
+			picture = GFX_focus_research
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.2
+			}
+			research_bonus = {
+				infantry_weapons = 0.1
+				artillery = 0.1
+				armor = 0.2
+			}
+		}
+
+		PRC_yanan_science_idea = {
+			name = PRC_yanan_science_idea
+			picture = GFX_focus_research
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				research_speed_factor = 0.1
+			}
+		}
+
+		PRC_pro_military_idea_1 = {
+			name = PRC_pro_military_idea
+			#picture = 
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = 0.2
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_speed_factor = 0.1
+				breakthrough_factor = 0.1
+				army_org_factor = 0.1
+				army_org_regain = 0.1
+			}
+		}
+
+		PRC_work_allday_idea = {
+			name = PRC_work_allday_idea
+			#picture = 
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+				production_speed_buildings_factor = 0.3
+			}
+		}
+
+		PRC_worker_front_idea_1 = {
+			name = PRC_worker_front_idea
+			#picture = 
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+				production_speed_buildings_factor = 0.2
+			}
+		}
+
+		PRC_worker_front_idea = {
+			name = PRC_worker_front_idea
+			#picture = 
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
+
+		PRC_gov_noexp = {
+			name = PRC_gov_noexp
+			#picture = 
+			allowed = {
+				original_tag = PRC
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.2
+				political_advisor_cost_factor = 0.1
+			}
+		}
+
+		PRC_gov_short_per = {
+			name = PRC_gov_short_per
+			#picture = 
+			allowed = {original_tag = PRC}
+			removal_cost = -1
+			modifier = {
+				political_power_factor = -0.5
+				political_advisor_cost_factor = 0.2
+			}
+		}
+
+		PRC_government_strike = {
+			name = PRC_goverment_strike
+
+			picture = GFX_trotskyite_plot_nsb
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly_factor = -0.002
+				war_support_weekly_factor = -0.005
+				political_power_gain = -1
+				political_advisor_cost_factor = 0.5
+			}
+		}
+
+		PRC_white_terr = {
+			name = PRC_white_terr
+
+			picture = PRC_government_corruption
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly_factor = 0.03
+				political_power_gain = -1
+				
+			}
+		}
+
+		PRC_big_strike_1 = {
+			name = PRC_big_strike_1
+			#picture = 
+			allowed = { original_tag = PRC }
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.2
+				production_factory_efficiency_gain_factor = -0.3
+				production_speed_buildings_factor = -0.2
+			}
+		}
+
+		PRC_big_strike = {
+			name = PRC_big_strike
+			#picture = 
+			allowed = { original_tag = PRC }
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.5
+				production_factory_efficiency_gain_factor = -1
+				production_speed_buildings_factor = -0.5
+			}
+		}
+
+		PRC_the_long_march_1 = {
+
+			name = PRC_the_long_march
+
+			picture = prc_the_long_march
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.15
+				production_speed_buildings_factor = -0.5
+			}
+		}
+
+		PRC_the_long_march_2 = {
+
+			picture = prc_the_long_march2
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.05
+				production_speed_buildings_factor = -0.25
+			}
+		}
+
+		PRC_low_popular_support_5 = {
+
+			name = PRC_low_popular_support
+
+			picture = prc_low_popular_support
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.35
+				war_support_factor = -0.35
+			}
+		}
+
+		PRC_low_popular_support_4 = {
+
+			name = PRC_low_popular_support		
+
+			picture = prc_low_popular_support
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.24
+				war_support_factor = -0.24
+			}
+		}
+		
+		PRC_low_popular_support_3 = {
+
+			name = PRC_low_popular_support		
+
+			picture = prc_low_popular_support
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.18
+				war_support_factor = -0.18
+			}
+		}
+
+		PRC_low_popular_support_2 = {
+
+			name = PRC_low_popular_support		
+
+			picture = prc_low_popular_support2
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.14
+				war_support_factor = -0.14
+			}
+		}
+		
+		PRC_low_popular_support_1 = {
+
+			name = PRC_low_popular_support		
+
+			picture = prc_low_popular_support3
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.07
+				war_support_factor = -0.07
+			}
+		}
+
+		PRC_power_struggles = {
+
+			picture = generic_disjointed_gov
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				political_advisor_cost_factor = 0.25
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+			}
+		}
+
+		PRC_red_army_weakened = {
+
+			picture = chi_army_corruption
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				army_org_regain = -0.1
+				training_time_factor = 0.2
+				land_reinforce_rate = -0.01
+			}
+		}	
+
+		PRC_revolutionary_military_commission = {
+
+			picture = generic_communist_army
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				max_command_power = 20
+			}
+		}
+
+		PRC_central_military_commission = {
+
+			picture = generic_communist_army
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				max_command_power = 30
+				command_power_gain_mult = 0.1
+			}
+		}
+
+		PRC_peoples_volunteer_army = {
+
+			picture = generic_morale_bonus
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				send_volunteer_size = 5
+				send_volunteers_tension = -1
+				send_volunteer_divisions_required = -1
+			}
+		}
+
+		PRC_focus_on_china = {
+
+			picture = generic_war_preparation
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.05
+				army_core_attack_factor = 0.05
+			}
+		}
+
+		PRC_permit_opium_trade = {
+
+			picture = prc_permit_opium_trade
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.40
+			}
+		}
+
+		PRC_government_corruption = { 
+
+			picture = anti_soviet_pact
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.1
+				stability_factor = -0.1
+			}
+		}
+
+		PRC_protracted_warfare = {
+
+			picture = HUN_secret_rearmament
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.2
+			}
+		}
+
+		PRC_mobile_warfare = {
+
+			picture = FRA_scw_intervention_nationalists_focus
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				army_org_regain = 0.1
+				army_core_attack_factor = 0.2
+			}
+		}
+
+		PRC_peoples_war = {
+
+			picture = generic_infantry_bonus
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			modifier = {
+				resistance_target_on_our_occupied_states = 0.5 
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+		PRC_maoism = {
+
+			picture = generic_infantry_bonus
+
+			allowed = { original_tag = PRC }
+
+			removal_cost = -1
+
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1
+					instant = yes
+				}
+			}
+		}
+	}
+
+	industrial_concern = {
+		PRC_uestc_shenzhen = {
+			#picture = 
+
+			available = {
+				original_tag = PRC
+				controls_state = 605
+				has_completed_focus = PRC_uestc_sz
+			}
+			
+			research_bonus = {
+				electronics = 0.5
+			}
+
+			traits = {
+				electronics_school
+			}
+
+		}
+	}
+}

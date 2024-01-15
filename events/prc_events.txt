@@ -1,0 +1,223 @@
+﻿add_namespace = prc
+
+#kill mao
+country_event = {
+	id = prc.1
+	title = prc.1.t
+	desc = prc.1.d
+	picture = GFX_kill_mao
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.1.a
+		custom_effect_tooltip = prc_1_tt
+		kill_country_leader = yes
+		promote_character = {
+			character = PRC_emergency_committee
+			ideology = marxism
+		}
+		add_stability = -0.2
+		hidden_effect = {
+			complete_national_focus = PRC_kill_mao
+			country_event = {
+				id = prc.2
+				days = 1
+			}	
+		}
+	}
+}
+
+#government stop
+country_event = {
+	id = prc.2
+	title = prc.2.t
+	desc = prc.2.d
+	#picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.2.a
+		add_ideas = PRC_government_strike
+		hidden_effect = {
+			country_event = {
+				id = prc.3
+				days = 1
+			}
+		}
+	}
+}
+
+#big strike
+country_event = {
+	id = prc.3
+	title = prc.3.t
+	desc = prc.3.d
+	#picture = 
+	
+	is_triggered_only = yes
+
+	option = {
+		name = prc.3.a
+		add_ideas = PRC_big_strike
+	}
+}
+
+#investigate 1
+country_event = {
+	id = prc.4
+	title = prc.4.t
+	desc = prc.4.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.4.a
+		hidden_effect = {
+			country_event = {
+				id = prc.5
+				days = 21
+			}
+		}
+	}
+}
+
+#lin biao
+country_event = {
+	id = prc.5
+	title = prc.5.t
+	desc = prc.5.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.5.a
+		PRC = {
+			clr_country_flag = PRC_investing_1
+		}
+	}
+}
+
+#investigate 2
+country_event = {
+	id = prc.6
+	title = prc.6.t
+	desc = prc.6.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.6.a
+		swap_ideas = {
+			remove_idea = PRC_big_strike
+			add_idea = PRC_big_strike_1
+		}
+	}
+}
+
+#meeting start
+country_event = {
+	id = prc.7
+	title = prc.7.t
+	desc = prc.7.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.7.a
+		retire_character = PRC_zhou_enlai
+		retire_character = PRC_dong_biwu
+		retire_character = PRC_lin_bojiu
+		hidden_effect = {
+			country_event = {
+				id = prc.8
+				days = 7
+			}
+		}
+	}
+}
+
+#election
+country_event = {
+	id = prc.8
+	title = prc.8.t
+	desc = prc.8.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.8.a
+		hidden_effect = {
+			country_event = {
+				id = prc.9
+				days = 7
+			}
+		}
+		promote_character = {
+			character = PRC_zhang_rener
+			ideology = marxism
+		}
+	}
+}
+
+#meeting res
+country_event = {
+	id = prc.9
+	title = prc.9.t
+	desc = prc.9.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.9.a
+		remove_ideas = PRC_power_struggles
+	}
+}
+
+#kill lin_biao
+country_event = {
+	id = prc.10
+	title = prc.10.t
+	desc = prc.10.d
+	#picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.10.a
+		retire_character = PRC_lin_biao
+		delete_units = {
+			division_template = "Juntuán"
+			disband = yes
+		}
+		add_manpower = -12000
+		add_war_support = -0.2
+	}
+}
+
+country_event = {
+	id = prc.11
+	title = prc.11.t
+	desc = prc.11.d
+	#picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		name = prc.11.a
+		retire_character = PRC_lin_biao
+		delete_units = {
+			division_template = "Juntuán"
+			disband = yes
+		}
+		add_manpower = -12000
+		add_war_support = -0.2
+	}
+}

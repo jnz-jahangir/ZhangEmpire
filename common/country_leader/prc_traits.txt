@@ -1,0 +1,42 @@
+leader_traits = {
+
+	interim_government = {
+		random = no
+		stability_factor = -0.1
+	}
+
+	low_admin_eff = {
+		random = no
+		political_power_cost = 1
+	}
+
+    bit_student = {
+        random = no
+        research_speed_factor = 0.2
+    }
+
+	firm_right = {
+		random = no
+		trade_opinion_factor = 0.5
+	}
+
+	tuzhi = {
+		random = no
+		monthly_population = -0.1
+	}
+
+	coder = {
+		random = no
+		
+	}
+
+	economy_expert = {
+		random = no
+		consumer_goods_factor = -0.3
+		economy_cost_factor = -0.2
+	}
+
+	electronics_school = {
+		random = no
+	}
+}

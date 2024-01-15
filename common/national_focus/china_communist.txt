@@ -1,0 +1,1143 @@
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+### search_filters = {FOCUS_FILTER_MANPOWER}
+### search_filters = {FOCUS_FILTER_ANNEXATION}
+
+focus_tree = {
+	id = china_communist_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = PRC
+		}
+	}
+	default = no
+
+	continuous_focus_position = { x = 0 y = 2000 }
+
+	focus = {
+		id = PRC_kill_mao
+		icon = GFX_goal_generic_attack_allies
+		x = 5
+		y = 0
+		
+		cost = 1
+
+		available = {
+			always = no
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			
+		}
+		
+	}
+
+	focus = {
+		id = PRC_investigate_reason
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = PRC_kill_mao }
+		x = 5
+		y = 1
+
+		cost = 10
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+
+		select_effect = {
+			set_country_flag = PRC_no_cancel
+			country_event = {
+				id = prc.4
+				days = 14
+			}
+		}
+
+		completion_reward = {
+			clr_country_flag = PRC_no_cancel
+			country_event = prc.6
+		}
+	}
+
+	focus = {
+		id = PRC_seventh_meeting
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = PRC_investigate_reason }
+		x = 5
+		y = 2
+
+		cost = 10
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+
+		select_effect = {
+			set_country_flag = PRC_no_cancel
+			country_event = {
+				id = prc.7
+				days = 14
+			}
+		}
+
+		completion_reward = {
+			clr_country_flag = PRC_no_cancel
+		}
+	}
+
+	focus = {
+		id = PRC_strengthen_power
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = PRC_seventh_meeting }
+		x = 3
+		y = 3
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
+		}
+		
+		completion_reward = {
+			add_timed_idea = {
+				idea = PRC_white_terr
+				days = 180
+			}
+		}
+
+	}
+
+	focus = {
+		id = PRC_cronyism
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = PRC_strengthen_power }
+		x = 3
+		y = 4
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		completion_reward = {
+			recruit_character = PRC_he_junjie
+			recruit_character = PRC_qiao_langjie
+			add_stability = 0.1
+			remove_ideas = PRC_government_strike
+		}
+
+	}
+
+	focus = {
+		id = PRC_military_clean
+		icon = GFX_focus_SOV_military_purge
+		prerequisite = { focus = PRC_seventh_meeting }
+		x = 7
+		y = 3
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		
+		completion_reward = {
+			country_event = {
+				id = prc.10
+			}
+		}
+
+	}
+
+	focus = {
+		id = PRC_suppress_workers
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = {
+			focus = PRC_seventh_meeting
+		}
+		x = 5
+		y = 3
+		
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			add_manpower = -1000
+			remove_ideas = PRC_big_strike_1
+		}
+	}
+
+	focus = {
+		id = PRC_worker_front
+		icon = GFX_goal_generic_forceful_treaty
+		prerequisite = {
+			focus = PRC_suppress_workers
+		}
+		x = 5
+		y = 4
+		
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			add_ideas = PRC_worker_front_idea
+		}
+	}
+
+	focus = {
+		id = PRC_military_discipline
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = { focus = PRC_military_clean }
+		x = 7
+		y = 4
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		
+		completion_reward = {
+			remove_ideas = PRC_red_army_weakened
+		}
+
+	}
+
+	focus = {
+		id = PRC_expand_gov
+		icon = GFX_focus_generic_diplomatic_treaty
+		prerequisite = { focus = PRC_cronyism }
+		x = 3
+		y = 5
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		
+		completion_reward = {
+			remove_ideas = PRC_gov_short_per
+			add_timed_idea = {
+				idea = PRC_gov_noexp
+				days = 180
+			}
+			swap_ideas = {
+				remove_idea = PRC_low_popular_support_3
+				add_idea = PRC_low_popular_support_1
+			}
+		}
+
+	}
+
+	focus = {
+		id = PRC_work_allday
+		icon = GFX_goal_generic_air_production
+		prerequisite = {
+			focus = PRC_worker_front	 
+		}
+		x = 5
+		y = 5
+		
+		cost = 5
+		ai_will_do = {
+			factor = 100
+		}
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			add_ideas = PRC_work_allday_idea
+		}
+	}
+
+	focus = {
+		id = PRC_pro_military
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = PRC_military_discipline }
+		x = 7
+		y = 5
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_WAR_SUPPORT
+		}
+		
+		completion_reward = {
+			add_ideas = PRC_pro_military_idea_1
+		}
+
+	}
+
+	focus = {
+		id = PRC_leader_high
+		icon = GFX_focus_ITA_culto_del_duce
+		prerequisite = { 
+			focus = PRC_work_allday
+		}
+		prerequisite = {
+			focus = PRC_expand_gov
+		}
+		prerequisite = {
+			focus = PRC_pro_military 
+		}
+		x = 5
+		y = 6
+
+		cost = 10
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+			FOCUS_FILTER_STABILITY
+		}
+		
+		completion_reward = {
+			add_stability = 0.2
+			add_political_power = 150
+		}
+	}
+
+	focus = {
+		id = PRC_yanan_science
+		icon = GFX_focus_research
+		x = 13
+		y = 0
+
+		cost = 10
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		available = {
+			PRC_zhang_rener = {
+				is_country_leader = yes
+			}
+		}
+		
+		completion_reward = {
+			add_research_slot = 1
+			add_ideas = PRC_yanan_science_idea
+		}
+	}
+
+	focus = {
+		id = PRC_wuqi_part
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = {
+			focus = PRC_yanan_science
+		}
+		x = 11
+		y = 1
+
+		cost = 10
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_weapons
+				uses = 2
+				bonus = 1
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = artillery
+				uses = 2
+				bonus = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_zhuangjia_part
+		icon = GFX_focus_generic_tank_production
+		prerequisite = {
+			focus = PRC_yanan_science
+		}
+		x = 13
+		y = 1
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor
+				uses = 2
+				bonus = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_feiji_part
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = {
+			focus = PRC_yanan_science
+		}
+		x = 15
+		y = 1
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_equipment
+				uses = 2
+				bonus = 1
+				category = air_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_gongcheng_part
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = {
+			focus = PRC_wuqi_part
+			focus = PRC_zhuangjia_part
+			focus = PRC_feiji_part
+		}
+		x = 13
+		y = 2
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industry
+				uses = 2
+				bonus = 1
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_bit
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = {
+			focus = PRC_gongcheng_part
+		}
+		x = 13
+		y = 3
+
+		available = {
+			controls_state = 608
+			num_of_factories > 60
+		}
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+			swap_ideas = {
+				remove_idea = PRC_yanan_science_idea
+				add_idea = PRC_bit_idea_1
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_uestc
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = {
+			focus = PRC_gongcheng_part
+		}
+		x = 11
+		y = 3
+
+		available = {
+			controls_state = 605
+			num_of_factories > 60
+		}
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+			add_ideas = PRC_uestc_idea
+			add_tech_bonus = {
+				name = electronics
+				uses = 2
+				bonus = 1
+				category = electronics
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_buaa
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = {
+			focus = PRC_gongcheng_part
+		}
+		x = 15
+		y = 3
+
+		available = {
+			controls_state = 608
+			num_of_factories > 60
+		}
+
+		cost = 5
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+			add_ideas = PRC_buaa_idea
+			add_tech_bonus = {
+				name = air_equipment
+				uses = 2
+				bonus = 1
+				category = air_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_uestc_sz
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = {
+			focus = PRC_uestc
+		}
+		x = 11
+		y = 4
+
+		available = {
+			controls_state = 593
+		}
+
+		cost = 3
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = computing_tech
+				uses = 2
+				bonus = 1
+				category = computing_tech
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_bit_more
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = {
+			focus = PRC_bit
+		}
+		x = 13
+		y = 4
+
+		available = {
+			controls_state = 608
+		}
+
+		cost = 3
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = PRC_bit_idea_1
+				add_idea = PRC_bit_idea_2
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_buaa_more
+		icon = GFX_focus_generic_socialist_science
+		prerequisite = {
+			focus = PRC_gongcheng_part
+		}
+		x = 15
+		y = 4
+
+		available = {
+			controls_state = 608
+		}
+
+		cost = 3
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = air_equipment
+				uses = 2
+				bonus = 1
+				category = air_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_nuclar
+		icon = GFX_focus_wonderweapons
+		prerequisite = {
+			focus = PRC_bit_more
+			focus = PRC_uestc_sz
+			focus = PRC_buaa_more
+		}
+		x = 13
+		y = 5
+
+		available = {
+			controls_state = 608
+		}
+
+		cost = 3
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = nuclear
+				uses = 4
+				bonus = 2
+				category = nuclear
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_economy_recover
+		icon = GFX_focus_prc_infiltration
+		x = 20
+		y = 0
+
+		cost = 10
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			remove_ideas = PRC_the_long_march_1
+		}
+	}
+
+	focus = {
+		id = PRC_yapian_economy
+		icon = GFX_focus_generic_industry_1
+		x = 20
+		y = 1
+
+		cost = 5
+		prerequisite = {
+			focus = PRC_economy_recover
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			622 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_infrastructure
+		icon = GFX_goal_generic_construction
+		x = 18
+		y = 1
+
+		cost = 5
+		prerequisite = {
+			focus = PRC_economy_recover
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			622 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_yaodong_factory
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 22
+		y = 1
+
+		cost = 5
+		prerequisite = {
+			focus = PRC_economy_recover
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = PRC_immature_production
+				days = 365
+			}
+			622 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_resource
+		icon = GFX_goal_generic_construction2
+		x = 18
+		y = 2
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_infrastructure
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available = {
+			has_tech = excavation2
+		}
+
+		completion_reward = {
+			622 = {
+				add_resource = {
+					type = steel
+					amount = 15
+				}
+				add_resource = {
+					type = oil
+					amount = 8
+				}
+				add_resource = {
+					type = aluminium
+					amount = 5
+				}
+				add_resource = {
+					type = tungsten
+					amount = 10
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_restore_trade
+		icon = GFX_focus_generic_industry_2
+		x = 20
+		y = 2
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_yapian_economy
+		}
+		available = {
+			is_in_faction_with = CHI
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			622 = {
+				add_extra_state_shared_building_slots = 10
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_expand_factory
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 22
+		y = 2
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_yaodong_factory
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			622 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_create_navy
+		icon = GFX_goal_generic_build_navy
+		x = 29
+		y = 0
+
+		cost = 10
+		available = {
+			controls_state = 608
+			controls_state = 613
+			controls_state = 596
+			controls_state = 593
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			608 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			613 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			596 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+			593 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = dockyard
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = PRC_destroyer
+		icon = GFX_focus_generic_destroyer
+		x = 25
+		y = 1
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_navy
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = mio_cat_tech_all_destroyer_and_modules
+				uses = 4
+				bonus = 1
+				category = mio_cat_tech_all_destroyer_and_modules
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_cruiser
+		icon = GFX_focus_generic_cruiser2
+		x = 27
+		y = 1
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_navy
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = mio_cat_tech_all_cruiser_and_modules
+				uses = 4
+				bonus = 1
+				category = mio_cat_tech_all_cruiser_and_modules
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_carrier
+		icon = GFX_goal_generic_navy_carrier
+		x = 29
+		y = 1
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_navy
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = mio_cat_tech_all_carrier_and_modules
+				uses = 4
+				bonus = 1
+				category = mio_cat_tech_all_carrier_and_modules
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_battleship
+		icon = GFX_goal_generic_navy_battleship
+		x = 31
+		y = 1
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_navy
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bb_tech
+				uses = 4
+				bonus = 1
+				category = bb_tech
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_submarine
+		icon = GFX_goal_generic_navy_submarine
+		x = 33
+		y = 1
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_navy
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = mio_cat_tech_all_submarine_and_modules
+				uses = 4
+				bonus = 1
+				category = mio_cat_tech_all_submarine_and_modules
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_create_airforce
+		icon = GFX_goal_generic_air_fighter2
+		x = 29
+		y = 2
+
+		cost = 10
+		available = {
+			controls_state = 608
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			608 = {
+				add_extra_state_shared_building_slots = 5
+				add_building_construction = {
+					type = arms_factory
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 7
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_fighter
+		icon = GFX_goal_generic_air_fighter
+		x = 27
+		y = 3
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_airforce
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = light_fighter
+				uses = 4
+				bonus = 1
+				category = light_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_bomber
+		icon = GFX_goal_generic_air_bomber
+		x = 31
+		y = 3
+
+		cost = 10
+		prerequisite = {
+			focus = PRC_create_airforce
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = tactical_bomber
+				uses = 4
+				bonus = 1
+				category = tactical_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = PRC_emergency
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 20
+		y = 6
+
+		cost = 1
+		available = {
+			PRC = {
+				has_war_with = JAP
+			}
+		}
+		ai_will_do = { factor = 100 }
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			add_war_support = 0.1
+			hidden_effect = {
+				country_event = prc.11
+			}	
+		}
+	}
+}
+
+#
+
