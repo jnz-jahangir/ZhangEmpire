@@ -93,11 +93,31 @@ focus_tree = {
 	}
 
 	focus = {
+		id = PRC_Chairman_Zhang
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = PRC_seventh_meeting }
+		cost = 3.00
+		x = 5
+		y = 3
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "张任尔"
+			}
+		}
+		
+		completion_reward = 
+		{
+
+		}
+	}
+
+	focus = {
 		id = PRC_strengthen_power
 		icon = GFX_focus_generic_self_management
-		prerequisite = { focus = PRC_seventh_meeting }
+		prerequisite = { focus = PRC_Chairman_Zhang }
 		x = 3
-		y = 3
+		y = 4
 
 		cost = 5
 		ai_will_do = { factor = 100 }
@@ -120,7 +140,7 @@ focus_tree = {
 		icon = GFX_goal_generic_intelligence_exchange
 		prerequisite = { focus = PRC_strengthen_power }
 		x = 3
-		y = 4
+		y = 5
 
 		cost = 5
 		ai_will_do = { factor = 100 }
@@ -140,9 +160,9 @@ focus_tree = {
 	focus = {
 		id = PRC_military_clean
 		icon = GFX_focus_SOV_military_purge
-		prerequisite = { focus = PRC_seventh_meeting }
+		prerequisite = { focus = PRC_Chairman_Zhang }
 		x = 7
-		y = 3
+		y = 4
 
 		cost = 5
 		ai_will_do = { factor = 100 }
@@ -162,10 +182,10 @@ focus_tree = {
 		id = PRC_suppress_workers
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = {
-			focus = PRC_seventh_meeting
+			focus = PRC_Chairman_Zhang
 		}
 		x = 5
-		y = 3
+		y = 4
 		
 		cost = 5
 		ai_will_do = {
@@ -187,7 +207,7 @@ focus_tree = {
 			focus = PRC_suppress_workers
 		}
 		x = 5
-		y = 4
+		y = 5
 		
 		cost = 5
 		ai_will_do = {
@@ -206,7 +226,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_mobilization_plan
 		prerequisite = { focus = PRC_military_clean }
 		x = 7
-		y = 4
+		y = 5
 
 		cost = 5
 		ai_will_do = { factor = 100 }
@@ -225,7 +245,7 @@ focus_tree = {
 		icon = GFX_focus_generic_diplomatic_treaty
 		prerequisite = { focus = PRC_cronyism }
 		x = 3
-		y = 5
+		y = 6
 
 		cost = 5
 		ai_will_do = { factor = 100 }
@@ -254,7 +274,7 @@ focus_tree = {
 			focus = PRC_worker_front	 
 		}
 		x = 5
-		y = 5
+		y = 6
 		
 		cost = 5
 		ai_will_do = {
@@ -273,7 +293,7 @@ focus_tree = {
 		icon = GFX_focus_generic_military_mission
 		prerequisite = { focus = PRC_military_discipline }
 		x = 7
-		y = 5
+		y = 6
 
 		cost = 5
 		ai_will_do = { factor = 100 }
@@ -300,7 +320,7 @@ focus_tree = {
 			focus = PRC_pro_military 
 		}
 		x = 5
-		y = 6
+		y = 7
 
 		cost = 10
 		ai_will_do = { factor = 100 }
