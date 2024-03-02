@@ -4,4 +4,4 @@ tags={
 	"Events"
 }
 name="ZhangEmpire"
-supported_version="1.13.6"
+supported_version="1.13.7"
