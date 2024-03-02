@@ -96,7 +96,7 @@ focus_tree = {
 		id = PRC_Chairman_Zhang
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = PRC_seventh_meeting }
-		cost = 3.00
+		cost = 1.00
 		x = 5
 		y = 3
 		available = {
@@ -109,6 +109,75 @@ focus_tree = {
 		completion_reward = 
 		{
 
+		}
+	}
+
+	focus = {
+		id = PRC_Chairman_He
+		relative_position_id = PRC_seventh_meeting
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = PRC_seventh_meeting }
+		cost = 1.00
+		x = 6
+		y = 1
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				name = "贺俊杰"
+			}
+		}
+		
+		completion_reward = 
+		{
+			set_party_name = { 
+				ideology = neutrality 
+				name = PRC_He_Faction 
+				long_name = PRC_He_Faction_long
+				}
+			set_party_name = { 
+				ideology = communism 
+				name = PRC_Mao_Faction 
+				long_name = PRC_Mao_Faction_long
+				}
+			PRC_he_junjie = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					ideology = oligarchism
+					expire = "1965.1.1"
+					traits = {  }
+				}
+
+			}
+		}
+		}
+	}
+
+	focus = {
+		id = PRC_Victory_of_Menshevik
+		relative_position_id = PRC_Chairman_He
+		icon = GFX_goal_support_communism
+		prerequisite = { focus = PRC_Chairman_He }
+		cost = 5.00
+		x = 0
+		y = 1
+		
+		
+		completion_reward = 
+		{
+			
+			set_politics = { 
+			parties = { 	
+				democratic = { popularity = 0 } fascism = { popularity = 0 } communism = { popularity = 90 } neutrality = { popularity = 10 } 
+			} 
+			ruling_party = neutrality
+			}
+			add_popularity = { ideology = neutrality popularity = 0.3 }
+
+			country_event = {
+				id = prc.12
+				days = 0
+			}
 		}
 	}
 
@@ -338,8 +407,8 @@ focus_tree = {
 	focus = {
 		id = PRC_yanan_science
 		icon = GFX_focus_research
-		x = 13
-		y = 0
+		x = 29
+		y = 4
 
 		cost = 10
 		ai_will_do = { factor = 100 }
@@ -361,11 +430,12 @@ focus_tree = {
 
 	focus = {
 		id = PRC_wuqi_part
+		relative_position_id = PRC_yanan_science
 		icon = GFX_goal_generic_military_sphere
 		prerequisite = {
 			focus = PRC_yanan_science
 		}
-		x = 11
+		x = -2
 		y = 1
 
 		cost = 10
@@ -392,11 +462,12 @@ focus_tree = {
 
 	focus = {
 		id = PRC_zhuangjia_part
+		relative_position_id = PRC_yanan_science
 		icon = GFX_focus_generic_tank_production
 		prerequisite = {
 			focus = PRC_yanan_science
 		}
-		x = 13
+		x = 0
 		y = 1
 
 		cost = 5
@@ -417,11 +488,12 @@ focus_tree = {
 
 	focus = {
 		id = PRC_feiji_part
+		relative_position_id = PRC_yanan_science
 		icon = GFX_focus_generic_aircraft_production
 		prerequisite = {
 			focus = PRC_yanan_science
 		}
-		x = 15
+		x = 2
 		y = 1
 
 		cost = 5
@@ -442,13 +514,14 @@ focus_tree = {
 
 	focus = {
 		id = PRC_gongcheng_part
+		relative_position_id = PRC_yanan_science
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = {
 			focus = PRC_wuqi_part
 			focus = PRC_zhuangjia_part
 			focus = PRC_feiji_part
 		}
-		x = 13
+		x = 0
 		y = 2
 
 		cost = 5
@@ -469,12 +542,14 @@ focus_tree = {
 
 	focus = {
 		id = PRC_bit
+		relative_position_id = PRC_gongcheng_part
 		icon = GFX_focus_generic_socialist_science
 		prerequisite = {
 			focus = PRC_gongcheng_part
 		}
-		x = 13
-		y = 3
+		relative_position_id = PRC_gongcheng_part
+		x = 0
+		y = 1
 
 		available = {
 			controls_state = 608
@@ -498,12 +573,13 @@ focus_tree = {
 
 	focus = {
 		id = PRC_uestc
+		relative_position_id = PRC_gongcheng_part
 		icon = GFX_focus_generic_socialist_science
 		prerequisite = {
 			focus = PRC_gongcheng_part
 		}
-		x = 11
-		y = 3
+		x = -2
+		y = 1
 
 		available = {
 			controls_state = 605
@@ -530,12 +606,13 @@ focus_tree = {
 
 	focus = {
 		id = PRC_buaa
+		relative_position_id = PRC_gongcheng_part
 		icon = GFX_focus_generic_socialist_science
 		prerequisite = {
 			focus = PRC_gongcheng_part
 		}
-		x = 15
-		y = 3
+		x = 2
+		y = 1
 
 		available = {
 			controls_state = 608
@@ -562,12 +639,13 @@ focus_tree = {
 
 	focus = {
 		id = PRC_uestc_sz
+		relative_position_id = PRC_uestc
 		icon = GFX_focus_generic_socialist_science
 		prerequisite = {
 			focus = PRC_uestc
 		}
-		x = 11
-		y = 4
+		x = 0
+		y = 1
 
 		available = {
 			controls_state = 593
@@ -591,12 +669,13 @@ focus_tree = {
 
 	focus = {
 		id = PRC_bit_more
+		relative_position_id = PRC_gongcheng_part
 		icon = GFX_focus_generic_socialist_science
 		prerequisite = {
 			focus = PRC_bit
 		}
-		x = 13
-		y = 4
+		x = 0
+		y = 2
 
 		available = {
 			controls_state = 608
@@ -618,12 +697,13 @@ focus_tree = {
 
 	focus = {
 		id = PRC_buaa_more
+		relative_position_id = PRC_buaa
 		icon = GFX_focus_generic_socialist_science
 		prerequisite = {
 			focus = PRC_gongcheng_part
 		}
-		x = 15
-		y = 4
+		x = 0
+		y = 1
 
 		available = {
 			controls_state = 608
@@ -648,13 +728,14 @@ focus_tree = {
 	focus = {
 		id = PRC_nuclar
 		icon = GFX_focus_wonderweapons
+		relative_position_id = PRC_bit_more
 		prerequisite = {
 			focus = PRC_bit_more
 			focus = PRC_uestc_sz
 			focus = PRC_buaa_more
 		}
-		x = 13
-		y = 5
+		x = 0
+		y = 1
 
 		available = {
 			controls_state = 608

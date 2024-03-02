@@ -28,7 +28,14 @@ characters={
 		portraits={
 			civilian={
 				small="GFX_idea_generic_political_advisor_asia_1"
+				large=GFX_portrait_PRC_kwong_hu
 			}
+		}
+		country_leader={
+			ideology=marxism
+			traits={ tuzhi }
+			expire="1965.1.1"
+			id=-1
 		}
 		advisor={
 			slot = political_advisor
@@ -42,8 +49,8 @@ characters={
 			traits  = {
 				coder
 			}
-			
 		}
+		
 	}
 
 	PRC_zhang_rener={
@@ -60,6 +67,7 @@ characters={
 			id=-1
 		}
 	}
+
 
 	PRC_emergency_committee={
 		name=PRC_emergency_committee
